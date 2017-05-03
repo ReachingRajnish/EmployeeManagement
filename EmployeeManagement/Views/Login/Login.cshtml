@@ -1,0 +1,89 @@
+﻿@using EmployeeManagement.Models
+@model tblLogin
+@{
+    ViewBag.Title = "Log In";
+}
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Employee Management System</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <div id="container_wrapper">
+        <div class="spacer"></div>
+        <div id="container">
+            <div id="top"></div>
+            <div id="header">
+                <div id="inner_header">
+                    <div id="site_title">Employee Management System</div>
+                    <div id="site_slogan">Version 1.0</div>
+                </div>
+            </div>
+
+            <div id="left_column">
+                <div class="text_area" align="justify">
+                    <div class="title" style="text-align: center">Employee Management System</div>
+                    <center>
+                        <img src="~/images/mainpic.jpg" />
+                    </center>
+                </div>
+            </div>
+
+            <div id="right_column">
+                <div class="section_box" align="justify">
+                    <div class="subtitle">Members Area</div>
+                    @using (Html.BeginForm("Login", "Login"))
+                    {
+                        <table cellpadding="3" cellspacing="3" width="100%" border="0">
+                            <tr>
+                                <td>Username</td>
+                                <td>
+                                    @Html.TextBoxFor(m => m.Username, new { @class = "input100" })
+
+                                    @*<asp:TextBox ID="txtUsername" runat="server" CssClass="input100"></asp:TextBox>*@
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Password</td>
+                                <td>
+                                    @Html.PasswordFor(m => m.Password, new { @class = "input100" })
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center">
+                                    <input type="submit" class="buttonBlue" value="Login" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center">
+                                    @*@Html.Label("Hello")*@
+                                </td>
+                            </tr>
+                        </table>
+                    }
+                </div>
+                <br />
+                <div class="section_box">
+                    <div class="subtitle">For Support and Queries</div>
+                    Email : <a href="mailto:kotarajind@yahoo.co.in">kotarajind@yahoo.co.in</a>
+                    Web :<br />
+                    <a href="http://www.RcvTechnologies.com" target="_blank">www.RcvTechnologies.com</a>
+                    Mobile : +91 9024572768
+                </div>
+                <br />
+            </div>
+            <div id="footer">
+                Designed and Developed by <a href="http://www.RcvTechnologies.com" target="_blank">Rajnish Jha</a>
+            </div>
+        </div>
+        <div class="spacer"></div>
+    </div>
+</body>
+</html>

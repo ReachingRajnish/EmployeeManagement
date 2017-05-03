@@ -1,0 +1,62 @@
+﻿@model EmployeeManagement.Models.tblLogin
+
+@{
+    ViewBag.Title = "Add/Edit Login Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="title">
+    Add/Edit Login Details<br />
+    <br />
+</div>
+@using (Html.BeginForm("AddLogin","Login"))
+{
+    @Html.HiddenFor(m => m.LoginId);
+
+    <table cellpadding="5" cellspacing="5" border="0" width="450" align="center">
+        <tr>
+            <td colspan="2" align="center">
+                @Html.Label("")               
+            </td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>
+                @Html.TextBoxFor(m => m.LoginName, new { @class = "input300" })               
+            </td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>
+                @Html.TextBoxFor(m => m.Email, new { @class = "input300" })  
+            </td>
+        </tr>
+        <tr>
+            <td>Username</td>
+            <td>
+                @Html.TextBoxFor(m => m.Username, new { @class = "input300" })               
+            </td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td>
+                @Html.TextBoxFor(m => m.Password, new { @class = "input300" })              
+            </td>
+        </tr>
+        <tr>
+            <td>Rights</td>
+            <td>
+                <select id="ddlRights" name="SelectedUserRoleId" Style="width: 300px">
+                    <option value="1">Administrator</option>
+                    <option value="0">User</option>              
+                </select>              
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input id="btnSave" type="submit" class="buttonBlue" value="Save" />              
+                <input id="btnCancel" class="buttonBlue"  onclick="" value="Cancel" />             
+            </td>
+        </tr>
+    </table>
+}

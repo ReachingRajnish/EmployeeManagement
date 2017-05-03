@@ -1,0 +1,32 @@
+﻿<ul class="menu">
+    <div id="divAdmin">
+        <li>@Html.ActionLink("Manage Login Details", "ManageLogin")</li>
+        <li><a href="Manage-Department.aspx">Manage Deparments</a></li>
+        <li><a href="Manage-Employee.aspx">Manage Employee Details</a></li>
+    </div>
+    <li><a href="Master-List-Employee-Report.aspx">List of Employees Report</a></li>
+    <li><a href="Employee-Service-Report.aspx">Employees Service Report</a></li>
+    <li>@Html.ActionLink("Logout", "Logout")</li>
+</ul>
+<br />
+<div class="section_box">
+    <div class="subtitle">Birthday Alerts</div>
+    @*<asp:Label ID="lblMessage" runat="server"></asp:Label>*@
+    @*<asp:DataList ID="dlBirthday" runat="server" Width="100%">
+            <itemtemplate>
+                <b><asp:Label ID="lblName" runat="server" Text='<%# Eval("Name") %>'></asp:Label></b><br />
+                <asp:Label ID="lblDOB" runat="server" Text='<%# Convert.ToDateTime(Eval("DOB")).ToString("MMM dd, yyyy") %>'></asp:Label><br /><hr style="border:dotted 1px #333333" />
+            </itemtemplate>
+        </asp:DataList>*@
+    <br />
+</div>
+<br />
+<div class="section_box">
+    <div class="subtitle">Total No. of Employees</div>
+    <br />
+    <center>
+        <h1>
+            @Html.Label("23")
+        </h1>
+    </center>
+</div>

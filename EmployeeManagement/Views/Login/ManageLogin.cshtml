@@ -1,0 +1,55 @@
+﻿@model List<EmployeeManagement.Models.tblLogin>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="title">
+    Manage Login Details<br />
+    <br />
+</div>
+<div style="text-align: center">
+    @Html.Label("")
+</div>
+<div style="text-align: right">
+    <input id="btnSave" class="buttonBlue" style="width: 100px" type="button" onclick="@("window.location.href='" + @Url.Action("add", "login") + "'");" value="Add New Login" /> 
+</div>
+<table cellspacing="0" cellpadding="4" rules="all" class="table_Login">
+    <tbody>
+        <tr class="table_Heading">
+            <th align="center" scope="col">Rights</th>
+            <th align="center" scope="col">Login Name</th>
+            <th align="center" scope="col">Username</th>
+            <th align="center" scope="col">Edit</th>
+            <th align="center" scope="col">Delete</th>
+        </tr>
+
+        @foreach (var login in Model)
+        {
+            <tr class="table_Data">
+                <td class="table_Rights">
+          @{
+            if (login.Rights == 1)
+            {
+                <span>Admin</span>
+            }
+
+            else
+            {
+                <span>User</span>
+            }
+           }
+                </td>
+                <td>@login.LoginName</td>
+                <td>@login.Username</td>
+                <td class="table_EditDelete">
+                    @Html.ActionLink("Edit", "Edit", new {id = login.LoginId })
+                </td>
+                <td class="table_EditDelete">
+                    @Html.ActionLink("Delete", "Delete")
+                </td>
+            </tr>
+        }
+        
+    </tbody>
+</table>
