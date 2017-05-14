@@ -46,10 +46,35 @@
                     @Html.ActionLink("Edit", "Edit", new {id = login.LoginId })
                 </td>
                 <td class="table_EditDelete">
-                    @Html.ActionLink("Delete", "Delete")
+                    @*@Html.ActionLink("Delete", "Delete", new { id = login.LoginId }, new { onclick = "Delete(); return true;" })*@
+
+                    <a href="" onclick="Delete(@login.LoginId); return true;">Delete</a>
                 </td>
             </tr>
         }
         
     </tbody>
 </table>
+
+<script type="text/javascript">   
+    function Delete(loginId) {          
+         var r = confirm("Are you sure to delete?");
+         if (r == true) {
+           //  debugger;
+             $.ajax({                
+                 url: 'Delete?id=' + loginId,                 
+                 type: 'GET',
+                 contentType: 'application/json; charset=utf-8',
+                 dataType: 'json',
+                 success: function (result) {                
+                 },
+
+                 error: function (response) {
+                     alert(response);
+                 }
+             });
+         } else {
+            
+         }
+  }      
+</script>

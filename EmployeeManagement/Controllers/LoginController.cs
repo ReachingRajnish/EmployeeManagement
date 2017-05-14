@@ -72,29 +72,39 @@ namespace EmployeeManagement.Controllers
 
         public ActionResult Edit(int id)
         {
-            return View();
+            var loginDetails = objContext.Logins.FirstOrDefault(l => l.LoginId == id);
+            return View(loginDetails);
         }
 
         // POST: Login/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(tblLogin tblLogin)
         {
             try
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                var loginDetails = objContext.Logins.FirstOrDefault(l => l.LoginId == tblLogin.LoginId);
+                loginDetails.Email = tblLogin.Email;
+                loginDetails.LoginName = tblLogin.LoginName;
+                loginDetails.Username = tblLogin.Username;
+                loginDetails.ModifiedDate = DateTime.Now;
+                loginDetails.Rights = tblLogin.Rights;             
+                objContext.SaveChanges();
+                return RedirectToAction("ManageLogin");
             }
-            catch
+            catch(Exception)
             {
-                return View();
+                throw;
             }
         }
 
         // GET: Login/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var loginDetails = objContext.Logins.FirstOrDefault(l => l.LoginId == id);
+            if(loginDetails!=null)
+                objContext.Logins.Remove(loginDetails);
+            objContext.SaveChanges();
+            return RedirectToAction("ManageLogin");
         }
 
         // POST: Login/Delete/5

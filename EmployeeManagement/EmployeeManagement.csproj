@@ -156,6 +156,7 @@
     <Content Include="Views\Login\Default.cshtml" />
     <Content Include="Views\Login\ManageLogin.cshtml" />
     <Content Include="Views\Login\Add.cshtml" />
+    <Content Include="Views\Login\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
